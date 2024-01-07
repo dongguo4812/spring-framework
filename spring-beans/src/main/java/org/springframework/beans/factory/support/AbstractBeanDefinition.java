@@ -62,12 +62,14 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	/**
 	 * Constant for the default scope name: {@code ""}, equivalent to singleton
 	 * status unless overridden from a parent bean definition (if applicable).
+	 * 默认作用域名称，相当于单例状态，除非被父bean定义覆盖
 	 */
 	public static final String SCOPE_DEFAULT = "";
 
 	/**
 	 * Constant that indicates no external autowiring at all.
 	 * @see #setAutowireMode
+	 *
 	 */
 	public static final int AUTOWIRE_NO = AutowireCapableBeanFactory.AUTOWIRE_NO;
 
@@ -206,6 +208,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	/**
 	 * Create a new AbstractBeanDefinition with default settings.
+	 * 构造器
 	 */
 	protected AbstractBeanDefinition() {
 		this(null, null);
@@ -214,6 +217,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	/**
 	 * Create a new AbstractBeanDefinition with the given
 	 * constructor argument values and property values.
+	 * 指定参数的构造器
 	 */
 	protected AbstractBeanDefinition(@Nullable ConstructorArgumentValues cargs, @Nullable MutablePropertyValues pvs) {
 		this.constructorArgumentValues = cargs;
@@ -224,6 +228,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	 * Create a new AbstractBeanDefinition as a deep copy of the given
 	 * bean definition.
 	 * @param original the original bean definition to copy from
+	 *   使用深拷贝创建一个新的AbstractBeanDefinition
 	 */
 	protected AbstractBeanDefinition(BeanDefinition original) {
 		setParentName(original.getParentName());
@@ -293,6 +298,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	 * {@code initMethodName}, and {@code destroyMethodName} if specified
 	 * in the given bean definition.
 	 * </ul>
+	 * 复制一个bean的定义到当前bean，通常父子bean合并时可用
 	 */
 	public void overrideFrom(BeanDefinition other) {
 		if (StringUtils.hasLength(other.getBeanClassName())) {

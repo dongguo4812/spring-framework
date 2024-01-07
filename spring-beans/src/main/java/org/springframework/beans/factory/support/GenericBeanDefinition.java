@@ -60,6 +60,7 @@ public class GenericBeanDefinition extends AbstractBeanDefinition {
 	 * Create a new GenericBeanDefinition as deep copy of the given
 	 * bean definition.
 	 * @param original the original bean definition to copy from
+	 *    深拷贝创建bean
 	 */
 	public GenericBeanDefinition(BeanDefinition original) {
 		super(original);
